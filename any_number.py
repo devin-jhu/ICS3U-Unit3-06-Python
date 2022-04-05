@@ -4,8 +4,7 @@
 # Created on March 2022
 # The number game
 
-import constants
-
+import random 
 
 def main():
     # this function is a guessing game
@@ -14,13 +13,20 @@ def main():
     print("Guess a number between 1 and 9")
 
     # input
-    NumberGuess = int(input("enter number: "))
+    number_guess_string = input("enter number: ")
+    number_answer = random.randint(1, 9)
 
     # process
-    if NumberGuess == constants.NumberAnswer:
-        print("you win!")
-    else:
-        print("you lose :(")
+    try:
+       number_guess = int(number_guess_string) 
+       
+        if number_guess == number_answer:
+            print("you win!")
+        else:
+            print("you lose :(")
+    
+    except Exception:
+        print("Not a valid response try again.")
     print("Done.")
 
 
